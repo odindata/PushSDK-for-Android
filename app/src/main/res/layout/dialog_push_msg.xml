@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="231dp"
+    android:layout_height="183dp"
+    android:background="@color/colorWhite"
+    app:cardCornerRadius="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="19dp"
+            android:gravity="center"
+            android:text="收到推送"
+            android:textColor="@color/color_333333"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_dialog_push_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="15dp"
+            android:text="我是推送内容"
+            android:textColor="@color/color_333333"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btn_ensure"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="31dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/shape_button"
+            android:gravity="center"
+            android:text="我知道了"
+            android:textColor="@color/colorWhite"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="次推送服务由奥丁数据提供"
+            android:textColor="@color/color_4d000000"
+            android:textSize="10sp" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

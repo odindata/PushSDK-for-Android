@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_header" />
+
+    <include layout="@layout/layout_push" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup_timer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="30dp"
+        android:paddingStart="9dp"
+        android:paddingEnd="9dp">
+
+        <RadioButton
+            android:id="@+id/radioButton1"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@drawable/shape_header"
+            android:button="@null"
+            android:checked="true"
+            android:text="@string/str_timer_1_min"
+            android:textColor="@drawable/selector_timer_text"
+            android:textSize="13sp" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@drawable/shape_header"
+            android:button="@null"
+            android:text="@string/str_timer_2_min"
+            android:textColor="@drawable/selector_timer_text" />
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@drawable/shape_header"
+            android:button="@null"
+            android:text="@string/str_timer_3_min"
+            android:textColor="@drawable/selector_timer_text" />
+
+        <RadioButton
+            android:id="@+id/radioButton4"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@drawable/shape_header"
+            android:button="@null"
+            android:text="@string/str_timer_4_min"
+            android:textColor="@drawable/selector_timer_text" />
+
+        <RadioButton
+            android:id="@+id/radioButton5"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@drawable/shape_header"
+            android:button="@null"
+            android:text="@string/str_timer_5_min"
+            android:textColor="@drawable/selector_timer_text" />
+
+    </RadioGroup>
+
+    <include layout="@layout/layout_push_btn" />
+
+</LinearLayout>

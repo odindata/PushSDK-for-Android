@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.odin.push.demo">
+
+    <!--公共权限-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission
+        android:name="android.permission.GET_ACCOUNTS"
+        android:maxSdkVersion="22" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!--华为权限-->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+
+    <!--小米权限-->
+    <uses-permission android:name="com.odin.push.demo.permission.MIPUSH_RECEIVE" />
+    <permission
+        android:name="com.odin.push.demo.permission.MIPUSH_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <!--魅族权限  -->
+    <uses-permission android:name="com.meizu.flyme.push.permission.RECEIVE" />
+    <uses-permission android:name="com.odin.push.demo.push.permission.MESSAGE" />
+    <uses-permission android:name="com.meizu.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="com.odin.push.demo.permission.C2D_MESSAGE" />
+
+    <permission
+        android:name="com.odin.push.demo.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+    <permission
+        android:name="com.odin.odinpush.push.permission.MESSAGE"
+        android:protectionLevel="signature" />
+
+    <application
+        android:name=".OdinApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.main.InAppPushActivity" />
+        <activity android:name=".ui.main.AppNotificationActivity" />
+        <activity android:name=".ui.main.PushOpenPageActivity" />
+        <activity android:name=".ui.main.PushOpenUrlActivity" />
+        <activity android:name=".ui.main.LocalNotificationActivity" />
+        <activity android:name=".ui.main.TimerNotificationActivity" />
+
+        <activity android:name=".ui.open.OpenUrlActivity" />
+        <activity android:name=".ui.open.OpenPageDetailActivity">
+            <!--点击通知跳转到具体的页面时，需要配置-->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:host="com.odin.push.demo"
+                    android:path="/detail"
+                    android:scheme="odin" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.open.OpenPageNotificationActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:host="com.odin.push.demo"
+                    android:path="/notification"
+                    android:scheme="odin" />
+            </intent-filter>
+        </activity>
+
+
+        <!--=================================奥丁====================================-->
+
+        <meta-data
+            android:name="Odin-AppKey"
+            android:value="985459861c2c4e7b8f4f2c7245e56448" />
+        <meta-data
+            android:name="Odin-AppSecret"
+            android:value="b250f2ba017048e88275154a62ed1bce" />
+
+        <service
+            android:name="com.odin.pushcore.OdinPushService"
+            android:exported="true"
+            android:process=":odinpush" />
+        <service
+            android:name="com.odin.pushcore.impl.PushJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <receiver android:name="com.odin.pushcore.impl.OdinPushReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+
+        <!--=================================小米渠道配置====================================-->
+
+        <meta-data
+            android:name="com.odin.push.xiaomi.appid"
+            android:value="\2882303761518402300" />
+        <meta-data
+            android:name="com.odin.push.xiaomi.appkey"
+            android:value="\5461840283300" />
+
+        <service
+            android:name="com.xiaomi.mipush.sdk.MessageHandleService"
+            android:enabled="true" />
+        <service
+            android:name="com.xiaomi.mipush.sdk.PushMessageHandler"
+            android:enabled="true"
+            android:exported="true" />
+
+        <receiver
+            android:name="com.xiaomi.push.service.receivers.NetworkStatusReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.odin.pushcore.plugins.xiaomi.PushXiaoMiRevicer"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.MESSAGE_ARRIVED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.ERROR" />
+            </intent-filter>
+        </receiver>
+
+
+        <!--=================================华为渠道配置====================================-->
+
+        <meta-data
+            android:name="com.huawei.hms.client.appid"
+            android:value="\102252209" />
+
+        <receiver android:name="com.odin.pushcore.plugins.huawei.PushHaiWeiRevicer">
+            <intent-filter>
+                <action android:name="com.huawei.android.push.intent.REGISTRATION" />
+                <action android:name="com.huawei.android.push.intent.RECEIVE" />
+                <action android:name="com.huawei.android.push.intent.CLICK" />
+                <action android:name="com.huawei.intent.action.PUSH_STATE" />
+            </intent-filter>
+        </receiver>
+        <provider
+            android:name="com.huawei.hms.update.provider.UpdateProvider"
+            android:authorities="com.odin.push.demo.hms.update.provider"
+            android:exported="false"
+            android:grantUriPermissions="true" />
+
+
+        <!--=================================魅族渠道配置====================================-->
+
+        <meta-data
+            android:name="com.odin.push.meizu.appid"
+            android:value="130730" />
+        <meta-data
+            android:name="com.odin.push.meizu.appkey"
+            android:value="13ca726e212e45a19eb6ca96a27ac5d9" />
+
+        <receiver android:name="com.odin.pushcore.plugins.meizu.PushMeiZuRevicer">
+            <intent-filter>
+                <action android:name="com.meizu.flyme.push.intent.MESSAGE" />
+                <action android:name="com.meizu.flyme.push.intent.REGISTER.FEEDBACK" />
+                <action android:name="com.meizu.flyme.push.intent.UNREGISTER.FEEDBACK" />
+                <action android:name="com.meizu.c2dm.intent.REGISTRATION" />
+                <action android:name="com.meizu.c2dm.intent.RECEIVE" />
+
+                <category android:name="com.odin.push.demo" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

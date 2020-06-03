@@ -1,0 +1,78 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "com.odin.push.demo"
+        minSdkVersion 16
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    signingConfigs {
+        release {
+            keyAlias "push"
+            keyPassword "odin123456"
+            storeFile file("../odinpush.jks")
+            storePassword "odin123456"
+        }
+        debug {
+            keyAlias "push"
+            keyPassword "odin123456"
+            storeFile file("../odinpush.jks")
+            storePassword "odin123456"
+        }
+    }
+    buildTypes {
+        release {
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    applicationVariants.all {
+        variant ->
+            variant.outputs.all {
+                def buildDate = new Date().format("yyyyMMdd")
+                def versionName = defaultConfig.versionName
+                //项目名-版本名-版本号-release/debug.apk
+                if (variant.buildType.name == 'release') {
+                    outputFileName = "OdinPushDemo-${versionName}-${buildDate}-release.apk"
+                } else {
+                    outputFileName = "OdinPushDemo-${versionName}-${buildDate}-debug.apk"
+                }
+            }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    implementation 'com.gyf.immersionbar:immersionbar:3.0.0-beta05'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+//    implementation 'com.odin:OdinPush:1.0.6_beta'
+//    implementation 'com.odin.common:odintools:1.0.2_beta'
+//    implementation 'com.odin.common:odincommon:1.0.2_beta'
+//
+//    //渠道包，按需集成
+//    //集成华为渠道
+//    implementation 'com.odin.push.plugins:huawei:1.0.2_beta'
+//    //集成魅族渠道
+//    implementation 'com.odin.push.plugins:meizu:1.0.2_beta'
+//    //集成小米渠道
+//    implementation 'com.odin.push.plugins:xiaomi:1.0.2_beta'
+}

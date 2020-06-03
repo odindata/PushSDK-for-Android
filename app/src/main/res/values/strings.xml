@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">OdinPush</string>
+    <string name="app_name_temp">Odin Push</string>
+
+    <string name="str_in_app_push_test">App内推送测试</string>
+    <string name="str_app_notification_test">App通知测试</string>
+    <string name="str_timer_notification_test">定时通知测试</string>
+    <string name="str_local_notification_test">本地通知测试</string>
+    <string name="str_push_open_link">推送并打开指定链接</string>
+    <string name="str_push_open_page">推送并打开指定页面</string>
+
+    <string name="str_in_app_push_content">点击测试按钮后，将立即收到一条App内推送</string>
+    <string name="str_app_notification_test_content">点击测试按钮后，请在前台关闭App，10s后本手机将收到一条App测试通知提醒</string>
+    <string name="str_timer_notification_test_content">点击测试按钮后，请在前台关闭App，在设定时间到后本手机将收到一条App测试通知提醒</string>
+    <string name="str_local_notification_test_content">点击测试按钮后，请在前台关闭App，在设定时间到后本手机将收到一条本地测试通知提醒</string>
+    <string name="str_open_link_test_content">点击测试按钮后，请在前台关闭App，10s后本手机将收到一条App测试通知提醒，点击后将跳转至指定链接</string>
+    <string name="str_open_page_test_content">点击测试按钮后，请在前台关闭App，10s后本手机将收到一条App测试通知提醒，点击后将跳转至指定页面</string>
+
+    <string name="str_edit_text_link_hint">请填写跳转的URL地址</string>
+    <string name="str_edit_text_hint">请填写推送内容（不超过32个字）</string>
+    <string name="str_btn_click_test">点击测试</string>
+
+    <string name="str_timer_now">立即</string>
+    <string name="str_timer_1_min">1分钟后</string>
+    <string name="str_timer_2_min">2分钟后</string>
+    <string name="str_timer_3_min">3分钟后</string>
+    <string name="str_timer_4_min">4分钟后</string>
+    <string name="str_timer_5_min">5分钟后</string>
+
+    <string name="str_open_page_detail">打开指定页面-App内推送详情页</string>
+    <string name="str_open_page_notification">打开指定页面-App通知页</string>
+    <string name="str_text_open_page_detail">App内推送详情页\n通知被点击，跳转的页面</string>
+    <string name="str_text_open_page_notification">App通知页\n通知被点击，跳转的页面</string>
+
+</resources>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_push_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="15dp"
+        android:text="@string/str_app_notification_test_content"
+        android:textColor="@color/color_9b9da5"
+        android:textSize="12sp" />
+
+    <EditText
+        android:id="@+id/et_push_url"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/shape_edittext"
+        android:gravity="top"
+        android:hint="@string/str_edit_text_link_hint"
+        android:inputType="textUri"
+        android:padding="12dp"
+        android:textSize="13sp"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/et_push_content"
+        android:layout_width="match_parent"
+        android:layout_height="115dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/shape_edittext"
+        android:gravity="top"
+        android:hint="@string/str_edit_text_hint"
+        android:inputType="text"
+        android:maxLength="32"
+        android:padding="12dp"
+        android:textSize="13sp" />
+
+</LinearLayout>
