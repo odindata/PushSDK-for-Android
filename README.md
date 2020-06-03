@@ -32,17 +32,17 @@ allprojects {
 
 ```groovy
 //核心包和工具包
-implementation 'com.odin.common:odincommon:1.0.1_beta'
-implementation 'com.odin.common:odintools:1.0.1_beta'
-implementation 'com.odin:OdinPush:1.0.2_beta'
+implementation 'com.odin.common:odincommon:1.0.2_beta'
+implementation 'com.odin.common:odintools:1.0.2_beta'
+implementation 'com.odin:OdinPush:1.0.6_beta'
 
 //渠道包，按需集成
 //集成华为渠道
-implementation'com.odin.push.plugins:huawei:1.0.1_beta'
+implementation'com.odin.push.plugins:huawei:1.0.2_beta'
 //集成魅族渠道
-implementation 'com.odin.push.plugins:meizu:1.0.1_beta'
+implementation 'com.odin.push.plugins:meizu:1.0.2_beta'
 //集成小米渠道
-implementation 'com.odin.push.plugins:xiaomi:1.0.1_beta'
+implementation 'com.odin.push.plugins:xiaomi:1.0.2_beta'
 ```
 
 ### AndroidManifest配置
